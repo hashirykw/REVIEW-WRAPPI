@@ -34,7 +34,7 @@ window.wrHeroReady=true;})();
   --color-ink:#0b0c0e;--color-ink-2:#131417;--color-ink-3:#1b1c1f;--color-steel:#34363b;
   --color-line:rgb(236 236 232 / .11);--color-line-2:rgb(236 236 232 / .24);
   --color-mute:#8b8d92;--color-soft:#c9cacd;--color-glow:#f6f6f4;--color-on-glow:#55575c;
-  --color-white:#ffffff;--color-red:#d6343c;--color-blue:#4092ce;--color-nx:#01c2f4;--color-nx-ink:#00131c;
+  --color-red:#d6343c;--color-blue:#4092ce;--color-nx:#01c2f4;--color-nx-ink:#00131c;
   --glass:rgb(255 255 255 / .045);--glass-hi:rgb(255 255 255 / .08);
   --stripe:linear-gradient(90deg,var(--color-red) 0 44%,transparent 44% 56%,var(--color-blue) 56% 100%);
   --font-display:'Jost','Futura','Century Gothic','Avenir Next',system-ui,sans-serif;
@@ -95,10 +95,10 @@ h1{margin:0;font-family:var(--font-display);font-style:normal;font-weight:800;fo
   -webkit-tap-highlight-color:transparent;touch-action:manipulation;
   transition:background-color .3s var(--ease-out),color .3s var(--ease-out),transform .35s var(--ease-out)}
 .lk::after{content:"";position:absolute;left:var(--sl);right:0;top:0;height:2px;background:var(--stripe);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease-out)}
-.lk__ic{display:grid;place-items:center;width:44px;height:44px}
-.lk__ic svg,.lk__ic img{width:44px;height:44px}
-.lk__ic--g{background:var(--color-white);border-radius:12px;box-shadow:inset 0 0 0 1px rgb(0 0 0 / .08)}
-.lk__ic--g svg{width:26px;height:26px}
+.lk__ic{display:grid;place-items:center;width:44px;height:44px;background:var(--glass-hi);box-shadow:inset 0 0 0 1px var(--color-line);transition:background-color .3s var(--ease-out),color .3s var(--ease-out)}
+.lk__ic svg{width:22px;height:22px}
+.lk__ic--img{background:none;box-shadow:none}
+.lk__ic--img img{width:44px;height:44px}
 .lk__t{display:grid;gap:1px;min-width:0}
 .lk__t b{font-weight:600;font-size:1.06rem;line-height:1.15;letter-spacing:.005em;text-wrap:balance}
 .lk__t small{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--color-mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -106,6 +106,7 @@ h1{margin:0;font-family:var(--font-display);font-style:normal;font-weight:800;fo
 @media (hover:hover){
   .lk:hover{background:var(--color-glow);color:var(--color-ink);transform:translateY(-2px)}
   .lk:hover .lk__t small,.lk:hover .lk__go{color:var(--color-on-glow)}
+  .lk:hover .lk__ic:not(.lk__ic--img){background:var(--color-ink);color:var(--color-glow)}
   .lk:hover::after{transform:scaleX(1)}
   .lk:hover .lk__go{transform:translateX(4px)}
 }
@@ -113,6 +114,7 @@ h1{margin:0;font-family:var(--font-display);font-style:normal;font-weight:800;fo
 .lk:active{transform:scale(.985)}
 /* Primary: Google review */
 .lk--main{min-height:84px;background:var(--color-glow);color:var(--color-ink);box-shadow:none}
+.lk--main .lk__ic{background:var(--color-ink);color:var(--color-glow);box-shadow:none}
 .lk--main .lk__t b{font-size:1.12rem;font-weight:700}
 .lk--main .lk__t small,.lk--main .lk__go{color:var(--color-on-glow)}
 .lk--main::after{transform:scaleX(1)}
@@ -188,23 +190,23 @@ html.is-3d .hero__hint{display:block}
 
   <ul class="links">
     <li><a class="lk lk--main" href="https://g.page/r/CRUcUYGtVRD_EBM/review" rel="noopener">
-      <span class="lk__ic lk__ic--g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.09A6.6 6.6 0 0 1 5.49 12c0-.73.13-1.43.35-2.09V7.07H2.18A11 11 0 0 0 1 12c0 1.78.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></span>
+      <span class="lk__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12 2.8 2.8 5.8 6.3.8-4.6 4.4 1.2 6.3L12 17l-5.7 3.1 1.2-6.3L2.9 9.4l6.3-.8z"/></svg></span>
       <span class="lk__t"><b><span data-l="no">Anmeld oss på Google</span><span data-l="en">Review us on Google</span></b><small><span data-l="no">Tar under ett minutt</span><span data-l="en">Takes under a minute</span></small></span>
       <svg class="lk__go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
     </a></li>
     <li><a class="lk" href="https://www.instagram.com/wrappi__/" rel="noopener">
-      <span class="lk__ic"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><radialGradient id="igA" cx="13" cy="51" r="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fd5"/><stop offset=".1" stop-color="#fd5"/><stop offset=".5" stop-color="#ff543e"/><stop offset="1" stop-color="#c837ab"/></radialGradient><radialGradient id="igB" cx="-8" cy="3.5" r="27" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3771c8"/><stop offset=".13" stop-color="#3771c8"/><stop offset="1" stop-color="#60f" stop-opacity="0"/></radialGradient></defs><rect width="48" height="48" rx="12" fill="url(#igA)"/><rect width="48" height="48" rx="12" fill="url(#igB)"/><g fill="none" stroke="#fff" stroke-width="3.4"><rect x="10.5" y="10.5" width="27" height="27" rx="8"/><circle cx="24" cy="24" r="6.6"/></g><circle cx="31.9" cy="16.1" r="2" fill="#fff"/></svg></span>
+      <span class="lk__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></g></svg></span>
       <span class="lk__t"><b><span data-l="no">Følg oss på Instagram</span><span data-l="en">Follow us on Instagram</span></b><small>@wrappi__</small></span>
       <svg class="lk__go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
     </a></li>
     <!-- FACEBOOK: placeholder (searches Facebook for Wrappi). Replace href with Wrappi's real Facebook page URL. -->
     <li><a class="lk" href="https://www.facebook.com/search/top?q=Wrappi%20Wrapping%20Art%20Design%20Oslo" rel="noopener">
-      <span class="lk__ic"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="fbC"><circle cx="24" cy="24" r="24"/></clipPath></defs><circle cx="24" cy="24" r="24" fill="#0866FF"/><path clip-path="url(#fbC)" fill="#fff" d="M26.7 48V31.3h5.4l.9-6.6h-6.3v-4.2c0-1.9.6-3.2 3.3-3.2h3.3v-5.9c-.6-.1-2.6-.3-4.8-.3-4.8 0-8 2.9-8 8.2v5.4h-5.4v6.6h5.4V48z"/></svg></span>
+      <span class="lk__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8Z"/></svg></span>
       <span class="lk__t"><b><span data-l="no">Følg oss på Facebook</span><span data-l="en">Follow us on Facebook</span></b><small>Wrappi</small></span>
       <svg class="lk__go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
     </a></li>
     <li><a class="lk" href="https://wrappingartdesign.no/" data-href-en="https://wrappingartdesign.no/en">
-      <span class="lk__ic"><img src="/favicon-96.png" alt="" width="44" height="44" decoding="async"></span>
+      <span class="lk__ic lk__ic--img"><img src="/favicon-96.png" alt="" width="44" height="44" decoding="async"></span>
       <span class="lk__t"><b><span data-l="no">Se nettsiden</span><span data-l="en">Visit the website</span></b><small><span data-l="no">PPF · Wrap · Polering</span><span data-l="en">PPF · Wrap · Polishing</span></small></span>
       <svg class="lk__go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
     </a></li>
